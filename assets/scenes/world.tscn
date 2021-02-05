@@ -1,0 +1,257 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://assets/tilemaps/boden.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tilemaps/wand.tres" type="TileSet" id=3]
+[ext_resource path="res://assets/items/artifacts.png" type="Texture" id=4]
+[ext_resource path="res://assets/items/letter.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/uncollected_icon.png" type="Texture" id=6]
+[ext_resource path="res://assets/scripts/letter.gd" type="Script" id=7]
+[ext_resource path="res://assets/scripts/feather.gd" type="Script" id=8]
+[ext_resource path="res://assets/scripts/apple.gd" type="Script" id=9]
+[ext_resource path="res://assets/items/feather.png" type="Texture" id=10]
+[ext_resource path="res://assets/items/apple.png" type="Texture" id=11]
+[ext_resource path="res://assets/scripts/HUD.gd" type="Script" id=12]
+[ext_resource path="res://assets/sounds/Blazer Rail 2.wav" type="AudioStream" id=13]
+[ext_resource path="res://assets/background.png" type="Texture" id=14]
+[ext_resource path="res://assets/Retro Gaming.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://assets/scripts/Time.gd" type="Script" id=16]
+
+
+
+
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 552, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6.78986, 7.0491 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.101961, 0.121569, 0.188235, 0.470588 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="DynamicFont" id=4]
+size = 75
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 15 )
+
+[node name="world" type="Node2D"]
+
+[node name="TileMap_boden" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -458783, 6, 0, -458782, 4, 0, -458781, 5, 0, -327715, 6, 0, -327714, 4, 0, -327713, 5, 0, -327688, 6, 0, -327687, 4, 0, -327686, 5, 0, -262194, 6, 0, -262193, 4, 0, -262192, 5, 0, -262184, 6, 0, -262183, 5, 0, -262157, 6, 0, -262156, 5, 0, -131117, 6, 0, -131116, 4, 0, -131115, 5, 0, -131103, 6, 0, -131102, 5, 0, -131089, 6, 0, -131088, 4, 0, -131087, 5, 0, -65542, 6, 0, -65541, 4, 0, -65540, 5, 0, -51, 1, 0, -50, 1, 0, -49, 1, 0, -48, 1, 0, -21, 6, 0, -20, 5, 0, 65486, 3, 0, 65487, 3, 0, 65534, 0, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 2, 0, 131022, 3, 0, 131023, 3, 0, 131027, 1, 0, 131028, 1, 0, 131029, 1, 0, 131030, 5, 0, 131041, 0, 0, 131042, 1, 0, 131043, 2, 0, 131047, 6, 0, 131048, 4, 0, 131049, 5, 0, 131055, 0, 0, 131056, 1, 0, 131057, 1, 0, 131058, 1, 0, 131059, 1, 0, 131060, 1, 0, 131061, 1, 0, 131062, 1, 0, 131063, 1, 0, 131064, 2, 0, 131070, 3, 0, 131071, 3, 0, 65536, 3, 0, 65537, 3, 0, 65538, 3, 0, 65539, 3, 0, 65540, 3, 0, 65541, 3, 0, 196558, 3, 0, 196559, 3, 0, 196564, 3, 0, 196565, 3, 0, 196568, 6, 0, 196569, 5, 0, 196577, 3, 0, 196578, 3, 0, 196579, 3, 0, 196591, 3, 0, 196592, 3, 0, 196593, 3, 0, 196594, 3, 0, 196595, 3, 0, 196596, 3, 0, 196597, 3, 0, 196598, 3, 0, 196599, 3, 0, 196600, 3, 0, 196606, 3, 0, 196607, 3, 0, 131072, 3, 0, 131073, 3, 0, 131074, 3, 0, 131075, 3, 0, 131076, 3, 0, 131077, 3, 0, 262094, 3, 0, 262095, 3, 0, 262100, 3, 0, 262101, 3, 0, 262108, 6, 0, 262109, 5, 0, 262113, 3, 0, 262114, 3, 0, 262115, 3, 0, 262127, 3, 0, 262128, 3, 0, 262129, 3, 0, 262130, 3, 0, 262131, 3, 0, 262132, 3, 0, 262133, 3, 0, 262134, 3, 0, 262135, 3, 0, 262136, 3, 0, 262142, 3, 0, 262143, 3, 0, 196608, 3, 0, 196609, 3, 0, 196610, 3, 0, 196611, 3, 0, 196612, 3, 0, 196613, 3, 0 )
+
+[node name="TileMap_wand" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -51, 536870912, 0, -48, 0, 0, 65485, 536870913, 0, 65488, 1, 0, 65534, 536870912, 0, 5, 0, 0, 131021, 536870913, 0, 131024, 1, 0, 131027, 536870912, 0, 131030, 0, 0, 131041, 536870912, 0, 131043, 0, 0, 131055, 536870912, 0, 131064, 0, 0, 131070, 536870913, 0, 65541, 1, 0, 196557, 536870913, 0, 196560, 1, 0, 196563, 536870913, 0, 196566, 1, 0, 196577, 536870913, 0, 196579, 1, 0, 196591, 536870913, 0, 196600, 1, 0, 196606, 536870913, 0, 131077, 1, 0, 262093, 536870913, 0, 262096, 1, 0, 262099, 536870913, 0, 262102, 1, 0, 262113, 536870913, 0, 262115, 1, 0, 262127, 536870913, 0, 262136, 1, 0, 262142, 536870913, 0, 196613, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 11.4445, -9.08479 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( -11.4445, 9.08479 )
+current = true
+zoom = Vector2( 0.2, 0.2 )
+limit_left = -850
+limit_top = -200
+limit_right = 96
+limit_bottom = 60
+smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="fallzone" type="Area2D" parent="."]
+position = Vector2( -458, 87 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fallzone"]
+shape = SubResource( 1 )
+
+[node name="feather" type="Area2D" parent="."]
+position = Vector2( -776, -88 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="feather"]
+texture = ExtResource( 4 )
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="feather"]
+shape = SubResource( 2 )
+
+[node name="apple" type="Area2D" parent="."]
+position = Vector2( -96, -104 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="apple"]
+texture = ExtResource( 4 )
+hframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="apple"]
+shape = SubResource( 2 )
+
+[node name="letter" type="Area2D" parent="."]
+position = Vector2( -480, -160 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="letter"]
+texture = ExtResource( 4 )
+hframes = 3
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="letter"]
+shape = SubResource( 2 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource( 12 )
+
+[node name="Panel" type="Panel" parent="HUD"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 112.0
+margin_bottom = 120.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="feather" type="TextureRect" parent="HUD"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 56.0
+margin_bottom = 48.0
+texture = ExtResource( 10 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="apple" type="TextureRect" parent="HUD"]
+margin_left = 16.0
+margin_top = 40.0
+margin_right = 56.0
+margin_bottom = 80.0
+texture = ExtResource( 11 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="letter" type="TextureRect" parent="HUD"]
+margin_left = 24.0
+margin_top = 80.0
+margin_right = 56.0
+margin_bottom = 112.0
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="feather_box" type="TextureRect" parent="HUD"]
+margin_left = 64.0
+margin_top = 16.0
+margin_right = 96.0
+margin_bottom = 48.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="apple_box" type="TextureRect" parent="HUD"]
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 80.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="letter_box" type="TextureRect" parent="HUD"]
+margin_left = 64.0
+margin_top = 80.0
+margin_right = 96.0
+margin_bottom = 112.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cheater" type="Label" parent="HUD"]
+visible = false
+margin_left = 120.0
+margin_top = 8.0
+margin_right = 550.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 4 )
+text = "CHEATER!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="HUD"]
+margin_left = 8.0
+margin_top = 128.0
+margin_right = 117.0
+margin_bottom = 156.0
+custom_fonts/font = SubResource( 5 )
+text = "000.000"
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+volume_db = -10.0
+autoplay = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 320, 320 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+modulate = Color( 0.658824, 0.694118, 0.87451, 1 )
+scale = Vector2( 20, 20 )
+texture = ExtResource( 14 )
+centered = false
+[connection signal="cheatmode_enabled" from="Player" to="HUD/Time" method="_on_Player_cheatmode_enabled"]
+[connection signal="cheatmode_enabled" from="Player" to="HUD" method="_on_Player_cheatmode_enabled"]
+[connection signal="you_won" from="Player" to="HUD/Time" method="_on_Player_you_won"]
+[connection signal="body_entered" from="fallzone" to="Player" method="_on_fallzone_body_entered"]
+[connection signal="body_entered" from="feather" to="Player" method="_on_feather_body_entered"]
+[connection signal="body_entered" from="feather" to="feather" method="_on_feather_body_entered"]
+[connection signal="feather_collected" from="feather" to="HUD" method="_on_feather_feather_collected"]
+[connection signal="apple_collected" from="apple" to="HUD" method="_on_apple_apple_collected"]
+[connection signal="body_entered" from="apple" to="Player" method="_on_apple_body_entered"]
+[connection signal="body_entered" from="apple" to="apple" method="_on_apple_body_entered"]
+[connection signal="body_entered" from="letter" to="letter" method="_on_letter_body_entered"]
+[connection signal="body_entered" from="letter" to="Player" method="_on_letter_body_entered"]
+[connection signal="letter_collected" from="letter" to="HUD" method="_on_letter_letter_collected"]

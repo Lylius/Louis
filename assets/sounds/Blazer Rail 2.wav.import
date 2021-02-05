@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Blazer Rail 2.wav-8ea793a05766212772c2ae9aa0e3b563.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Blazer Rail 2.wav"
+dest_files=[ "res://.import/Blazer Rail 2.wav-8ea793a05766212772c2ae9aa0e3b563.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

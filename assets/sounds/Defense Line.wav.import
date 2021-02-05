@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Defense Line.wav-eafc1ad64e9c11c1a5c3eda8e088aa73.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Defense Line.wav"
+dest_files=[ "res://.import/Defense Line.wav-eafc1ad64e9c11c1a5c3eda8e088aa73.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

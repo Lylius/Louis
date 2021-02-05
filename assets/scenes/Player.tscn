@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/player/louis_idle.png" type="Texture" id=1]
+[ext_resource path="res://assets/player/louis_jump.png" type="Texture" id=2]
+[ext_resource path="res://assets/player/louis_idle2.png" type="Texture" id=3]
+[ext_resource path="res://assets/player/louis_walk.png" type="Texture" id=4]
+[ext_resource path="res://assets/player/louis_walk2.png" type="Texture" id=5]
+[ext_resource path="res://assets/scripts/PlayerController.gd" type="Script" id=6]
+[ext_resource path="res://assets/sounds/jump.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/sounds/collected.wav" type="AudioStream" id=9]
+
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3.4892, 6.63295 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.314976, 1.41741 )
+shape = SubResource( 2 )
+
+[node name="Sound_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+
+[node name="Sound_collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+volume_db = -10.0
